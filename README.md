@@ -27,7 +27,7 @@ Usaremos PostgreSQL como base de datos en esta práctica. Hay dos maneras de con
 Si prefieres no instalar PostgreSQL directamente en tu sistema, puedes utilizar Docker para ejecutar una instancia de PostgreSQL. Para esto, necesitas tener Docker instalado.
 
 Configuración de Docker para PostgreSQL
-Crea un archivo docker-compose.yml con la siguiente configuración:
+Crea un archivo docker-compose.yaml con la siguiente configuración:
 
 ```yaml
 services:
@@ -83,8 +83,9 @@ Para simplificar, también se puede utilizar SQLite, que es más ligero y no req
 
 ```typescript
 TypeOrmModule.forRoot({
-  type: 'sqlite',
-  database: 'db/sql',
-  synchronize: true,
-});
+      type: 'sqlite',
+      database: 'db/sql.sqlite',
+      autoLoadEntities: true,
+      synchronize: true,
+    })
 ```
